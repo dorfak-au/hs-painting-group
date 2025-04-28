@@ -1,16 +1,41 @@
+mat-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toolbar-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
 .spacer {
   flex: 1 1 auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 a {
   text-decoration: none;
   color: white;
+  font-size: 16px;
 }
 
-div {
-  text-align: center;
-  justify-content: center;
-  width: 100%;
-  left: 0;
-  position: absolute;
+a[mat-button] {
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-transform: none;
 }
