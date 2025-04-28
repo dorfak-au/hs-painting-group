@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+// /* Define custom typography if you want */
+// $custom-typography: mat-core.define-typography-config(
+//   $font-family: 'Poppins, sans-serif'
+// );
+
+/* Apply Material theme */
+html {
+  color-scheme: light dark;
+  @include mat.theme(
+    (
+      color: mat.$violet-palette,
+      typography: Poppins,
+      density: 0,
+    )
+  );
+}
+
+body {
+  margin: 0;
+}
