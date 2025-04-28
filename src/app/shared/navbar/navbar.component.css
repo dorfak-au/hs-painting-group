@@ -1,0 +1,16 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+div {
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  left: 0;
+  position: absolute;
+}
