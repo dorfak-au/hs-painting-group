@@ -2,41 +2,66 @@
     width: 100%;
     height: 100vh;
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     z-index: 0;
     object-fit: cover;
     object-position: center;
-}
-
-h1 {
+  }
+  
+  // Shared styles for h1
+  .hero-heading {
     position: absolute;
     top: 25%;
     left: 10%;
     transform: translate(-10%, -50%);
     color: #000033;
-    // font-size: 4rem;
     text-align: center;
     z-index: 1;
-}
-
-.positioned-card-wrapper {
+    font-size: 3rem;
+  
+    @media (max-width: 768px) {
+      top: 17%;
+      font-size: 1.75rem;
+      padding: 0 1rem;
+    }
+  }
+  
+  .positioned-card-wrapper {
     position: absolute;
     top: 25%;
     left: 75%;
     transform: translate(-10%, -50%);
     z-index: 1;
   
+    @media (max-width: 768px) {
+      top: 80vh;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+    }
+  
     .card {
-      background-color: rgba(255, 255, 255, 0.2); // white with 80% opacity
+      background-color: rgba(255, 255, 255, 0.2);
       padding: 1rem;
       border-radius: 0.5rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+        background-color: rgba(0, 0, 51, 0.8);
+      }
   
       p {
         text-align: center;
         color: #000033;
         font-size: 1.1rem;
+  
+        @media (max-width: 768px) {
+          font-size: 1rem;
+          color: white;
+        }
       }
     }
   }
+  

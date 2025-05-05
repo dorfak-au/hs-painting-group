@@ -1,20 +1,38 @@
-<mat-toolbar color="primary">
-  <div class="toolbar-content max-w-7xl mx-auto">
-    <img
-      src="assets/logo/hs_group_logo.png"
-      alt="Painting"
-      class="logo-img"
-      (click)="navigateHome()"
-    />
+<mat-toolbar color="primary" class="!p-0">
+  <div class="w-full flex items-center justify-between max-w-7xl mx-auto px-4 py-2">
+    <!-- Left: Logo -->
+    <div class="flex items-center gap-2">
+      <img
+        src="assets/logo/hs_group_logo.png"
+        alt="Logo"
+        class="h-10 cursor-pointer z-10"
+        (click)="navigateHome()"
+      />
+    </div>
 
-    <div class="spacer"></div>
-
-    <div class="nav-links">
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex gap-4">
       <a mat-button routerLink="/">Home</a>
       <a mat-button routerLink="/about">About</a>
       <a mat-button routerLink="/services">Services</a>
       <a mat-button routerLink="/gallery">Gallery</a>
       <a mat-button routerLink="/contact">Contact</a>
     </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden z-10">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
   </div>
 </mat-toolbar>
+
+<!-- Mobile Menu -->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/">Home</button>
+  <button mat-menu-item routerLink="/about">About</button>
+  <button mat-menu-item routerLink="/services">Services</button>
+  <button mat-menu-item routerLink="/gallery">Gallery</button>
+  <button mat-menu-item routerLink="/contact">Contact</button>
+</mat-menu>
