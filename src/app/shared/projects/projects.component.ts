@@ -15,7 +15,6 @@ export class ProjectsComponent {
   constructor(private projectService: ProjectService) {
     effect(() => {
       this.projects.set(this.projectService.getProjects());
-      console.log(this.projects());
     });
   }
 }

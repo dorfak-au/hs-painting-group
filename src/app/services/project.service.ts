@@ -13,4 +13,8 @@ export class ProjectService {
     }
     return this.projects();
   }
+
+  getProjectById(id: number) {
+    return this.projects().find((project) => project.id === id) || null;
+  }
 }

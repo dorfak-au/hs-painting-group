@@ -3,7 +3,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
     <div>
       <img
-        [src]="project()?.imgFront"
+        [src]="project()?.imgService"
         alt="FAQ"
         class="w-full h-120 object-cover rounded-md mb-4"
       />
@@ -24,7 +24,7 @@
       </div>
       <a
         class="px-3 mt-4 text-[#0066B1] font-semibold"
-        routerLink="/routePath"
+        [routerLink]="['/projects', project()?.id]"
         routerLinkActive="router-link-active"
         ><span class="mr-4">View Project</span>
         <i class="fas fa-arrow-right"></i
