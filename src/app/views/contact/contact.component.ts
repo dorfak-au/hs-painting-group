@@ -1,13 +1,18 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { EmailService } from '../../shared/email.service';
+import { EmailService } from '../../services/email.service';
 
 @Component({
   selector: 'app-contact',
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
   private fb = inject(FormBuilder);
@@ -16,7 +21,7 @@ export class ContactComponent {
   contactForm: FormGroup = this.fb.group({
     name: [''],
     email: ['', [Validators.required, Validators.email]],
-    message: ['', Validators.required]
+    message: ['', Validators.required],
   });
 
   sendEmail() {
@@ -25,12 +30,13 @@ export class ContactComponent {
       return;
     }
 
-    this.emailService.sendEmail(this.contactForm.value)
+    this.emailService
+      .sendEmail(this.contactForm.value)
       .then(() => {
         alert('Message sent!');
         this.contactForm.reset();
       })
-      .catch(err => {
+      .catch((err) => {
         console.error('Email error:', err);
         alert('Something went wrong. Please try again.');
       });
