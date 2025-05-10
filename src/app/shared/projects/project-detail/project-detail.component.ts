@@ -14,6 +14,13 @@ export class ProjectDetailComponent implements OnInit {
   private projectService = inject(ProjectService);
   project = signal<Project | null>(null);
 
+  labelMap: Record<string, string> = {
+    client: 'Client',
+    date: 'Date',
+    role: 'Role',
+    type: 'Project Type',
+  };
+
   ngOnInit() {
     const projectId = this.route.snapshot.paramMap.get('id');
     if (projectId) {
@@ -22,5 +29,13 @@ export class ProjectDetailComponent implements OnInit {
     } else {
       this.project.set(null);
     }
+  }
+
+  get detailEntries() {
+    if (this.project() && this.project()?.details) 
+    {
+      return Object.entries(this.project()!.details);
+    }
+    return [];
   }
 }

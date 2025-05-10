@@ -155,7 +155,7 @@
     </p>
     <a
       routerLink="/contact"
-      class="inline-block bg-blue-600 text-white font-medium px-6 py-2 rounded hover:bg-blue-700"
+      class="inline-block bg-[#000033] text-white font-medium px-6 py-2 rounded hover:bg-blue-900"
     >
       Contact Us
     </a>
@@ -173,51 +173,27 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
       <!-- Testimonial 1 -->
-      <div class="flex flex-col items-center text-center p-6">
-        <p class="font-semibold mb-4">
-          HS PAINTING GROUP transformed my home beautifully! Their attention to
-          detail is unmatched.
-        </p>
-        <img
-          src="assets/images/photo_2025-03-22_10-03-54.jpg"
-          alt="Drek Rod"
-          class="w-24 h-24 rounded-full object-cover mt-5 mb-4"
-        />
-        <h4 class="font-bold mt-5">Drek Rod</h4>
-        <p class="text-sm text-gray-600">Homeowner</p>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div
-        class="flex flex-col items-center text-center bg-gray-100 p-6 rounded-lg shadow-md"
-      >
-        <p class="font-semibold mb-4">
-          We were impressed with the professionalism and quality of work from HS
-          PAINTING GROUP. Thank you
-        </p>
-        <img
-          src="assets/images/testimonial2.png"
-          alt="Ibraham Yousef"
-          class="w-24 h-24 rounded-full object-cover mt-5 mb-4"
-        />
-        <h4 class="font-bold mt-5">Ibraham Yousef</h4>
-        <p class="text-sm text-gray-600">Business Owner</p>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div class="flex flex-col items-center text-center p-6">
-        <p class="font-semibold mb-4">
-          HS PAINTING GROUP exceeded our expectations with their timely and
-          high-quality service.
-        </p>
-        <img
-          src="assets/images/testimonial3.png"
-          alt="Mike Carrey"
-          class="w-24 h-24 rounded-full object-cover mt-5 mb-4"
-        />
-        <h4 class="font-bold mt-5">Mike Carrey</h4>
-        <p class="text-sm text-gray-600">Property Manager</p>
-      </div>
+       @for (user of users; track $index) {
+        <div
+          class="flex flex-col items-center text-center bg-gray-100 p-6 rounded-lg shadow-md"
+          [ngClass]="{
+            'bg-[#001050] text-white': $index === 0,
+            'bg-gray-100 text-black': $index !== 0
+          }"
+        >
+          <p class="font-semibold mb-4">
+            {{ user.review }}
+          </p>
+          <img
+            src="{{ user.img }}"
+            alt="{{ user.name }}"
+            class="w-24 h-24 rounded-full object-cover mt-5 mb-4"
+          />
+          <h4 class="font-bold mt-5">{{ user.name }}</h4>
+          <p class="text-sm text-gray-600">{{ user.occupation }}</p>
+        </div>
+       }
+      
     </div>
   </div>
 </div>

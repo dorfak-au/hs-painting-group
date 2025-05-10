@@ -5,9 +5,9 @@ interface Highlight {
 
 interface Details {
   client: string;
-  date?: string;
-  role?: string;
-  type?: string;
+  date: string;
+  role: string;
+  type: string;
 }
 
 export interface Project {
@@ -20,6 +20,7 @@ export interface Project {
   labels: string[];
   highlights: Highlight[];
   details: Details;
+  overview: string;
 }
 
 export const projects: Project[] = [
@@ -43,13 +44,14 @@ export const projects: Project[] = [
       role: 'Lead Painter',
       type: 'Interior Repainting',
     },
+    overview: 'This project involved a complete interior repaint of a luxury home, focusing on modern aesthetics and high-quality finishes. Our team meticulously selected elegant color choices and ensured every detail was executed to perfection, resulting in a stunning transformation that reflects the client’s vision.'
   },
   {
     id: 2,
     title: 'Commercial Office Renovation',
     description:
       'We revitalized a dated office space into a vibrant and modern work environment, enhancing both functionality and style for a better workplace experience.',
-    imgService: 'assets/images/proj_lux_home_interior.webp',
+    imgService: 'assets/images/proj_comm_office_reno.webp',
     imgDetail: 'assets/images/proj_2_detail.webp',
     highlights: [
       { title: 'Client', description: 'Tech Innovations Ltd.' },
@@ -68,6 +70,7 @@ export const projects: Project[] = [
       'Modern Work Environment',
       'Functional Design',
     ],
+    overview: 'This project involved a complete transformation of a dated office space into a vibrant and modern work environment. Our team focused on enhancing both functionality and style, ensuring that the new design promotes productivity and creativity. The use of bright colors and professional finishes has revitalized the workspace, making it an inviting place for employees and clients alike.',
   },
   {
     id: 3,
@@ -89,5 +92,6 @@ export const projects: Project[] = [
     },
     imgDetail: 'assets/images/proj_3_detail.webp',
     labels: ['Facade Restoration', 'Historic Preservation', 'Durability'],
+    overview: 'The ‘Exterior Facade Restoration’ project involved meticulous work to restore the exterior of a historic building. Our team focused on preserving the building’s original charm while applying modern techniques to ensure long-lasting durability. This project showcases our commitment to quality and attention to detail in every stroke.',
   },
 ];
